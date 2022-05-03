@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Yeseva One", cursive;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@layer components {
+  .btn {
+    @apply py-3 px-10 relative;
+  }
+
+  .btn::after {
+    content: "";
+    border: 2px solid black;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 5px;
+    top: 5px;
+  }
+
+  .btn:hover {
+    color: #c68db5;
+  }
+
+  .btn:hover::after {
+    background-color: #c68db5;
+    z-index: -1;
+  }
+
+  .btn--primary {
+    @apply bg-black text-white;
+  }
+
+  a:hover {
+    @apply italic underline;
+  }
+}
+
+@layer utilities {
+  .cotton-candy {
+    @apply from-violet-500 to-orange-300;
+  }
+
+  .background-shape {
+    clip-path: polygon(
+      36% 9%,
+      70% 0%,
+      100% 0,
+      100% 100%,
+      72% 94%,
+      46% 77%,
+      40% 45%,
+      23% 26%
+    );
+  }
+
+  .background-shape::after {
+    filter: url("#blur");
+    overflow: hidden;
+    position: fixed;
+    right: -50px;
+    z-index: 1;
+    margin-top: 10vw;
+  }
+}
